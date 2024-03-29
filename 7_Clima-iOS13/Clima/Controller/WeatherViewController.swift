@@ -38,7 +38,7 @@ extension WeatherViewController: UITextFieldDelegate {
         @IBAction func searchBtnClicked(_ sender: UIButton) {
             searchField.endEditing(true)    //dismiss keyboard
             print(searchField.text!)
-            
+            print("action: search, city: \(searchField.text!)")
             searchWeather()
         }
     
