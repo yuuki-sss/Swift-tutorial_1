@@ -38,7 +38,6 @@ extension WeatherViewController: UITextFieldDelegate {
         @IBAction func searchBtnClicked(_ sender: UIButton) {
             searchField.endEditing(true)    //dismiss keyboard
             print(searchField.text!)
-            print("action: search, city: \(searchField.text!)")
             searchWeather()
         }
     
@@ -82,6 +81,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             temperatureLabel.text = weatherModel.temperatureString
             cityLabel.text = weatherModel.cityName
             self.conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+            print("action: search, city: \(searchField.text!)")
             if searchField.text == "Tokyo" {
                 self.backgroundImageView.image = UIImage(named: "backgroundTokyo")
             } else {
