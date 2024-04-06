@@ -28,8 +28,9 @@ class WeatherViewController: UIViewController {
         weatherManager.delegate = self
         searchField.delegate = self
     }
-
-
+    
+    
+    
 }
  
 //MARK:- TextField extension
