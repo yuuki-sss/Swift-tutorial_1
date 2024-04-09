@@ -1,26 +1,26 @@
 //
-//  FaivaritViewController.swift
+//  FavoriteViewController.swift
 //  Clima
 //
-//  Created by 徳永勇希 on 2024/04/05.
+//  Created by 徳永勇希 on 2024/04/09.
 //  Copyright © 2024 App Brewery. All rights reserved.
 //
 
 import UIKit
 
-class FaivaritViewController: UIViewController {
+class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.backgroundColor = UIColor.gray
+
+        self.navigationController?.navigationBar.backgroundColor = UIColor.lightGray
+        self.navigationController?.title = "navTest"
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func backButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
+
+
     /*
     // MARK: - Navigation
 
