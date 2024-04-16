@@ -17,61 +17,123 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    @IBOutlet weak var dajyareLbl: UILabel!
+    
+    
     //MARK: Properties
     var weatherManager = WeatherDataManager()
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("a")
         locationManager.delegate = self
         weatherManager.delegate = self
         searchField.delegate = self
     }
+<<<<<<< HEAD
 
 
+=======
+    
+    
+    @IBAction func favoriteButton(_ sender: Any) {
+        let favoriteVC = FavoriteViewController()
+        self.navigationController?.pushViewController(favoriteVC, animated: true)
+    }
+    
+    @IBAction func dajyareButton(_ sender: Any) {
+        guard let url = URL(string: "https://icanhazdadjoke.com/") else { return }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        
+        URLSession.shared.dataTask(with: request) {(data, response, error) in
+            
+            if let error = error {
+                print("Unexpected error: \(error.localizedDescription).")
+                return;
+            }
+            
+            if let result = response as? HTTPURLResponse {
+                if (result.statusCode == 200) {
+                    print("Status Code: \(result.statusCode).")
+                    if let data = data {
+                        do {
+                            let jsonDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                            let taxRateInfos = jsonDict?["joke"]
+                            print(taxRateInfos as! String)
+                            DispatchQueue.main.sync {
+                                self.dajyareLbl.text = taxRateInfos as! String
+                            }
+                            
+                        } catch {
+                            print("Error")
+                        }
+                    } else {
+                        print("Unexpected error.")
+                    }
+                    return
+                }
+            }
+            
+        }.resume()
+    }
+    
+    
+>>>>>>> 40a97dd (APIを使用してダジャレを習得)
 }
- 
+
 //MARK:- TextField extension
 extension WeatherViewController: UITextFieldDelegate {
     
+<<<<<<< HEAD
         @IBAction func searchBtnClicked(_ sender: UIButton) {
             searchField.endEditing(true)    //dismiss keyboard
             print(searchField.text!)
             
             searchWeather()
         }
+=======
+    @IBAction func searchBtnClicked(_ sender: UIButton) {
+        searchField.endEditing(true)    //dismiss keyboard
+        print(searchField.text!)
+        searchWeather()
+    }
+>>>>>>> 40a97dd (APIを使用してダジャレを習得)
     
-        func searchWeather(){
-            if let cityName = searchField.text{
-                weatherManager.fetchWeather(cityName)
-            }
+    func searchWeather(){
+        if let cityName = searchField.text{
+            weatherManager.fetchWeather(cityName)
         }
+    }
+    
+    // when keyboard return clicked
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchField.endEditing(true)    //dismiss keyboard
+        print(searchField.text!)
         
-        // when keyboard return clicked
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            searchField.endEditing(true)    //dismiss keyboard
-            print(searchField.text!)
-            
-            searchWeather()
+        searchWeather()
+        return true
+    }
+    
+    // when textfield deselected
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        // by using "textField" (not "searchField") this applied to any textField in this Controller(cuz of delegate = self)
+        if textField.text != "" {
             return true
+        }else{
+            textField.placeholder = "Type something here"
+            return false            // check if city name is valid
         }
-        
-        // when textfield deselected
-        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-            // by using "textField" (not "searchField") this applied to any textField in this Controller(cuz of delegate = self)
-            if textField.text != "" {
-                return true
-            }else{
-                textField.placeholder = "Type something here"
-                return false            // check if city name is valid
-            }
-        }
-        
-        // when textfield stop editing (keyboard dismissed)
-        func textFieldDidEndEditing(_ textField: UITextField) {
-    //        searchField.text = ""   // clear textField
-        }
+    }
+    
+    // when textfield stop editing (keyboard dismissed)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //        searchField.text = ""   // clear textField
+    }
 }
 
 //MARK:- View update extension

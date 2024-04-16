@@ -58,16 +58,43 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQF-90-Unb">
+                                        <rect key="frame" x="10" y="50" width="364" height="48"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="ダジャレボタン"/>
+                                        <connections>
+                                            <action selector="dajyareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="69o-eu-yAA"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ1-9q-wVd">
+                                        <rect key="frame" x="10" y="108" width="364" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.rain" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-vV-MBC">
-                                        <rect key="frame" x="254" y="49" width="120" height="121.5"/>
+                                        <rect key="frame" x="254" y="137.5" width="120" height="121.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="GFV-i5-W4H"/>
                                             <constraint firstAttribute="height" constant="120" id="mX8-O6-OMh"/>
                                         </constraints>
                                     </imageView>
+<<<<<<< HEAD
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gx9-I8-UoC">
                                         <rect key="frame" x="176" y="180" width="198" height="119.5"/>
+=======
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2i-pS-x1w">
+                                        <rect key="frame" x="270" y="268.5" width="104" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="お気に入り"/>
+                                        <connections>
+                                            <action selector="favoriteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XyC-OI-af5"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gx9-I8-UoC">
+                                        <rect key="frame" x="176" y="313" width="198" height="119.5"/>
+>>>>>>> 40a97dd (APIを使用してダジャレを習得)
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="21" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9o-tW-03D" userLabel="Temperature Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="93" height="119.5"/>
@@ -87,16 +114,30 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWP-r8-Jsy">
+<<<<<<< HEAD
                                         <rect key="frame" x="276" y="309.5" width="98" height="36"/>
+=======
+                                        <rect key="frame" x="276" y="442.5" width="98" height="36"/>
+>>>>>>> 40a97dd (APIを使用してダジャレを習得)
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ti-bh-8Fw">
+<<<<<<< HEAD
                                         <rect key="frame" x="134" y="355.5" width="240" height="458.5"/>
+=======
+                                        <rect key="frame" x="134" y="488.5" width="240" height="281.5"/>
+>>>>>>> 40a97dd (APIを使用してダジャレを習得)
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="CQF-90-Unb" firstAttribute="leading" secondItem="Wz9-jj-JbA" secondAttribute="leading" constant="10" id="7jf-A6-LQj"/>
                                     <constraint firstAttribute="trailing" secondItem="Tgv-vV-Mot" secondAttribute="trailing" id="Xxe-YD-sFY"/>
+                                    <constraint firstItem="CQF-90-Unb" firstAttribute="top" secondItem="Tgv-vV-Mot" secondAttribute="bottom" constant="10" id="bgo-Yc-3uC"/>
+                                    <constraint firstItem="rQ1-9q-wVd" firstAttribute="top" secondItem="CQF-90-Unb" secondAttribute="bottom" constant="10" id="mID-cj-lhe"/>
+                                    <constraint firstAttribute="trailing" secondItem="rQ1-9q-wVd" secondAttribute="trailing" id="r7U-q6-E3X"/>
+                                    <constraint firstItem="mYn-vV-MBC" firstAttribute="top" secondItem="rQ1-9q-wVd" secondAttribute="bottom" constant="10" id="rJE-ai-hpj"/>
+                                    <constraint firstItem="rQ1-9q-wVd" firstAttribute="leading" secondItem="Wz9-jj-JbA" secondAttribute="leading" constant="10" id="wfO-Ls-417"/>
                                     <constraint firstItem="Tgv-vV-Mot" firstAttribute="leading" secondItem="Wz9-jj-JbA" secondAttribute="leading" id="zMA-9O-gQ7"/>
                                 </constraints>
                             </stackView>
@@ -118,6 +159,7 @@
                         <outlet property="backgroundImageView" destination="kWX-h1-VLT" id="B6q-TU-o5K"/>
                         <outlet property="cityLabel" destination="CWP-r8-Jsy" id="8cQ-3l-ufV"/>
                         <outlet property="conditionImageView" destination="mYn-vV-MBC" id="gpD-FU-YB0"/>
+                        <outlet property="dajyareLbl" destination="rQ1-9q-wVd" id="ZLJ-La-pow"/>
                         <outlet property="searchField" destination="2eh-wL-W34" id="Mdn-d0-ZRy"/>
                         <outlet property="temperatureLabel" destination="w9o-tW-03D" id="mF4-vV-JxK"/>
                     </connections>
@@ -139,7 +181,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
