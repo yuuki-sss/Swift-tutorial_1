@@ -32,9 +32,12 @@ class WeatherViewController: UIViewController {
         searchField.delegate = self
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
+=======
+>>>>>>> main
     
     
     @IBAction func favoriteButton(_ sender: Any) {
@@ -42,6 +45,7 @@ class WeatherViewController: UIViewController {
         self.navigationController?.pushViewController(favoriteVC, animated: true)
     }
     
+<<<<<<< HEAD
     @IBAction func dajyareButton(_ sender: Any) {
         guard let url = URL(string: "https://icanhazdadjoke.com/") else { return }
 
@@ -84,6 +88,8 @@ class WeatherViewController: UIViewController {
     
     
 >>>>>>> 40a97dd (APIを使用してダジャレを習得)
+=======
+>>>>>>> main
 }
 
 //MARK:- TextField extension
@@ -93,7 +99,6 @@ extension WeatherViewController: UITextFieldDelegate {
         @IBAction func searchBtnClicked(_ sender: UIButton) {
             searchField.endEditing(true)    //dismiss keyboard
             print(searchField.text!)
-            
             searchWeather()
         }
 =======
@@ -144,6 +149,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             temperatureLabel.text = weatherModel.temperatureString
             cityLabel.text = weatherModel.cityName
             self.conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+            print("action: search, city: \(searchField.text!)")
             if searchField.text == "Tokyo" {
                 self.backgroundImageView.image = UIImage(named: "backgroundTokyo")
             } else {
