@@ -16,6 +16,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var dajyareLbl: UILabel!
     
     //MARK: Properties
     var weatherManager = WeatherDataManager()
@@ -33,6 +34,54 @@ class WeatherViewController: UIViewController {
     @IBAction func favoriteButton(_ sender: Any) {
         let favoriteVC = FavoriteViewController()
         self.navigationController?.pushViewController(favoriteVC, animated: true)
+    }
+    
+    
+    @IBAction func dajare(_ sender: Any) {
+        
+        guard let url = URL(string: "https://icanhazdadjoke.com/") else { return }
+        var request = URLRequest(url: url)
+        //request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        APIService.shared.getRequest(url: request, type: Dajare.self) { (response) in
+            
+            DispatchQueue.main.sync {
+                self.dajyareLbl.text = response.joke
+            }
+        } errorHandler: { (error) in
+            print("error")
+        }
+        
+        /*URLSession.shared.dataTask(with: request) {(data, response, error) in
+            
+            if let error = error {
+                print("Unexpected error: \(error.localizedDescription).")
+                return;
+            }
+            
+            if let result = response as? HTTPURLResponse {
+                if (result.statusCode == 200) {
+                    print("Status Code: \(result.statusCode).")
+                    if let data = data {
+                        do {
+                            let jsonDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                            let taxRateInfos = jsonDict?["joke"]
+                            print(taxRateInfos as! String)
+                            DispatchQueue.main.sync {
+                                self.dajyareLbl.text = taxRateInfos as! String
+                            }
+                            
+                        } catch {
+                            print("Error")
+                        }
+                    } else {
+                        print("Unexpected error.")
+                    }
+                    return
+                }
+            }
+            
+        }.resume()*/
     }
     
 }
