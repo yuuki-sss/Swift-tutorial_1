@@ -9,12 +9,15 @@
 import Foundation
 
 class APIService {
-   
+    
     static let shared = APIService()
     
-    func getRequest<T: Codable>(url: URLRequest, type: T.Type, completionHandler: @escaping (T) -> Void, errorHandler: @escaping (String) -> Void) {
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+    func getRequest<T: Codable>(url: URL,value: String? = nil, headerField: String? = nil, type: T.Type, completionHandler: @escaping (T) -> Void, errorHandler: @escaping (String) -> Void) {
+        var request = URLRequest(url: url)
+        if let _value = value, let _headerField = headerField {
+            request.addValue(_value, forHTTPHeaderField: _headerField)
+        }
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
                 print(error as Any)
                 errorHandler(error?.localizedDescription ?? "Error!")

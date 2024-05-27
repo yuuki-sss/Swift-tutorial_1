@@ -40,9 +40,7 @@ class WeatherViewController: UIViewController {
     @IBAction func dajare(_ sender: Any) {
         
         guard let url = URL(string: "https://icanhazdadjoke.com/") else { return }
-        var request = URLRequest(url: url)
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        APIService.shared.getRequest(url: request, type: Dajare.self) { (response) in
+        APIService.shared.getRequest(url: url, value: "application/json", headerField: "Accept", type: Dajare.self) { (response) in
             
             DispatchQueue.main.sync {
                 self.dajyareLbl.text = response.joke
