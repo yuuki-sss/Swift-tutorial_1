@@ -24,14 +24,28 @@ struct WeatherDataManager{
     func fetchWeather(_ city: String){
         let completeURL = "\(baseURL)&q=\(city)"
         print(completeURL)
-        performRequest(url: completeURL )
+        performRequestApi(url: completeURL )
     }
     
     func fetchWeather(_ latitude: Double, _ longitude: Double){
-
+        
         let completeURL = "\(baseURL)&lat=\(latitude)&lon=\(longitude)"
         print(completeURL)
-        performRequest(url: completeURL )
+        performRequestApi(url: completeURL)
+    }
+    
+    func performRequestApi(url: String) {
+        if let url = URL(string: url) {
+            APIService.shared.getRequest(url: url, type: WeatherData.self, completionHandler: { (response) in
+                let weatherModel = WeatherModel(cityName: response.name, conditionId: response.weather[0].id, temperature: response.main.temp)
+                self.delegate?.updateWeather(weatherModel: weatherModel)
+                
+            }) { (error) in
+                print("Could not fetch images!")
+                self.delegate?.failedWithError(error: error as! Error)
+                return
+            }
+        }
     }
     
     //MARK: URL methods
@@ -58,7 +72,7 @@ struct WeatherDataManager{
                     }
                 }
             }
-
+            
             // what task do: go to url -> grab data -> come back
             
             // 4. Start the task
