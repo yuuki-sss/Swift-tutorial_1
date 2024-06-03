@@ -18,11 +18,11 @@ class FavoriteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let headerArray: [String] = ["山手線", "東横線", "田園都市線", "常磐線"]
-    private let yamanoteArray: [String] = ["渋谷", "新宿", "池袋"]
-    private let toyokoArray: [String] = ["自由ヶ丘", "日吉"]
-    private let dentoArray: [String] = ["溝の口", "二子玉川"]
-    private let jobanArray: [String] = ["上野"]
+    private let headerArray: [String] = ["EU", "アジア", "オセアニア", "アフリカ"]
+    private let yamanoteArray: [String] = ["ベルリン", "アムステルダム", "ロンドン"]
+    private let toyokoArray: [String] = ["東京", "バンコク"]
+    private let dentoArray: [String] = ["シドニー", "メルボルン"]
+    private let jobanArray: [String] = ["ケープタウン"]
     
     private lazy var courseArray = [
         rail(isShown: false, railName: self.headerArray[0], stationArray: self.yamanoteArray),
@@ -37,7 +37,7 @@ class FavoriteViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor.lightGray
         self.navigationController?.title = "navTest"
         self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -70,6 +70,12 @@ extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return courseArray[section].railName
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       let thirdVC = ThirdViewController()
+        thirdVC.searchName = courseArray[indexPath.section].stationArray[indexPath.row]
+        self.navigationController?.pushViewController(thirdVC, animated: true)
+     }
 }
 
 extension FavoriteViewController: UITableViewDelegate {
