@@ -23,8 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVb-2h-xs8">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVb-2h-xs8">
+                    <rect key="frame" x="0.0" y="85" width="393" height="733"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xcg-C4-qWW">
                     <rect key="frame" x="100" y="129" width="293" height="217"/>
@@ -46,12 +46,12 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="xcg-C4-qWW" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1Pt-HG-qhS"/>
-                <constraint firstItem="AVb-2h-xs8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="22P-F5-JQA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ADb-rT-wyf" secondAttribute="trailing" constant="45" id="Ah8-XI-TBs"/>
                 <constraint firstItem="AVb-2h-xs8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EEs-eO-2Pg"/>
-                <constraint firstAttribute="bottom" secondItem="AVb-2h-xs8" secondAttribute="bottom" id="EzB-Xc-owP"/>
                 <constraint firstItem="Suo-Dt-pet" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="JNp-LF-2ZC"/>
                 <constraint firstItem="AVb-2h-xs8" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Jgm-dK-rYw"/>
+                <constraint firstItem="AVb-2h-xs8" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="QHX-Dg-dJy"/>
+                <constraint firstItem="AVb-2h-xs8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="26" id="V2k-To-wR9"/>
                 <constraint firstItem="Suo-Dt-pet" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cKe-B4-JGy"/>
                 <constraint firstItem="Suo-Dt-pet" firstAttribute="width" secondItem="xcg-C4-qWW" secondAttribute="width" id="dA2-Fn-IWf"/>
                 <constraint firstItem="ADb-rT-wyf" firstAttribute="top" secondItem="Suo-Dt-pet" secondAttribute="bottom" constant="50" id="fRc-P3-e6G"/>

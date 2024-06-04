@@ -18,17 +18,17 @@ class FavoriteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let headerArray: [String] = ["EU", "アジア", "オセアニア", "アフリカ"]
-    private let yamanoteArray: [String] = ["ベルリン", "アムステルダム", "ロンドン"]
-    private let toyokoArray: [String] = ["東京", "バンコク"]
-    private let dentoArray: [String] = ["シドニー", "メルボルン"]
-    private let jobanArray: [String] = ["ケープタウン"]
+    private let continentArray: [String] = ["EU", "アジア", "オセアニア", "アフリカ"]
+    private let europeArray: [String] = ["ベルリン", "アムステルダム", "ロンドン"]
+    private let asiaArray: [String] = ["東京", "バンコク"]
+    private let oceaniaArray: [String] = ["シドニー", "メルボルン"]
+    private let africaArray: [String] = ["ケープタウン"]
     
     private lazy var courseArray = [
-        rail(isShown: false, railName: self.headerArray[0], stationArray: self.yamanoteArray),
-        rail(isShown: false, railName: self.headerArray[1], stationArray: self.toyokoArray),
-        rail(isShown: false, railName: self.headerArray[2], stationArray: self.dentoArray),
-        rail(isShown: false, railName: self.headerArray[3], stationArray: self.jobanArray)
+        rail(isShown: false, railName: self.continentArray[0], stationArray: self.europeArray),
+        rail(isShown: false, railName: self.continentArray[1], stationArray: self.asiaArray),
+        rail(isShown: false, railName: self.continentArray[2], stationArray: self.oceaniaArray),
+        rail(isShown: false, railName: self.continentArray[3], stationArray: self.africaArray)
     ]
     
     override func viewDidLoad() {
