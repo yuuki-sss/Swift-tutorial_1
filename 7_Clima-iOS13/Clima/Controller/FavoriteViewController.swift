@@ -8,10 +8,10 @@
 
 import UIKit
 
-struct rail {
+struct country {
     var isShown: Bool
-    var railName: String
-    var stationArray: [String]
+    var continentName: String
+    var countryArray: [String]
 }
 
 class FavoriteViewController: UIViewController {
@@ -24,11 +24,11 @@ class FavoriteViewController: UIViewController {
     private let oceaniaArray: [String] = ["シドニー", "メルボルン"]
     private let africaArray: [String] = ["ケープタウン"]
     
-    private lazy var courseArray = [
-        rail(isShown: false, railName: self.continentArray[0], stationArray: self.europeArray),
-        rail(isShown: false, railName: self.continentArray[1], stationArray: self.asiaArray),
-        rail(isShown: false, railName: self.continentArray[2], stationArray: self.oceaniaArray),
-        rail(isShown: false, railName: self.continentArray[3], stationArray: self.africaArray)
+    private lazy var countriesArray = [
+        country(isShown: false, continentName: self.continentArray[0], countryArray: self.europeArray),
+        country(isShown: false, continentName: self.continentArray[1], countryArray: self.asiaArray),
+        country(isShown: false, continentName: self.continentArray[2], countryArray: self.oceaniaArray),
+        country(isShown: false, continentName: self.continentArray[3], countryArray: self.africaArray)
     ]
     
     override func viewDidLoad() {
@@ -49,8 +49,8 @@ class FavoriteViewController: UIViewController {
 
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if courseArray[section].isShown {
-            return courseArray[section].stationArray.count
+        if countriesArray[section].isShown {
+            return countriesArray[section].countryArray.count
         } else {
             return 0
         }
@@ -58,22 +58,22 @@ extension FavoriteViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = courseArray[indexPath.section].stationArray[indexPath.row]
+        cell?.textLabel?.text = countriesArray[indexPath.section].countryArray[indexPath.row]
         
         return cell!
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return courseArray.count
+        return countriesArray.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return courseArray[section].railName
+        return countriesArray[section].continentName
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        let thirdVC = ThirdViewController()
-        thirdVC.searchName = courseArray[indexPath.section].stationArray[indexPath.row]
+        thirdVC.searchName = countriesArray[indexPath.section].countryArray[indexPath.row]
         self.navigationController?.pushViewController(thirdVC, animated: true)
      }
 }
@@ -92,7 +92,7 @@ extension FavoriteViewController: UITableViewDelegate {
         guard let section = sender.view?.tag else {
             return
         }
-        courseArray[section].isShown.toggle()
+        countriesArray[section].isShown.toggle()
         
         tableView.beginUpdates()
         tableView.reloadSections([section], with: .automatic)
