@@ -34,6 +34,8 @@ class WeatherViewController: UIViewController {
     @IBAction func favoriteButton(_ sender: Any) {
         let favoriteVC = FavoriteViewController()
         self.navigationController?.pushViewController(favoriteVC, animated: true)
+        // Assetsにあるiconを設定している
+        let icon = R.image.backgroundTokyo
     }
     
     
