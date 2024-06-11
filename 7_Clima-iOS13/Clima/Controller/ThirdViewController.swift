@@ -15,6 +15,7 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    var weatherManager = WeatherDataManager()
     var searchName = ""
     
     override func viewDidLoad() {
@@ -23,12 +24,13 @@ class ThirdViewController: UIViewController {
         // 画像設定
         backgroundImageView.image = UIImage(named: "background")
         
+        weatherManager.delegate = self
         // ナビゲーションバー透明
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.backgroundColor = .clear
-        
+        weatherManager.fetchWeather(searchName)
         // 天気API実行
-        let baseURL = "https://api.openweathermap.org/data/2.5/weather?appid=4e415e4ab2aaed09e04d8419beedee19&units=metric"
+        /*let baseURL = "https://api.openweathermap.org/data/2.5/weather?appid=4e415e4ab2aaed09e04d8419beedee19&units=metric"
         let completeURL = "\(baseURL)&q=\(searchName)"
         guard let url = URL(string: completeURL) else { return }
         APIService.shared.getRequest(url: url, type: WeatherData.self) { (response) in
@@ -42,8 +44,31 @@ class ThirdViewController: UIViewController {
             
         } errorHandler: { (error) in
             print(error)
-        }
+        }*/
         
     }
     
 }
+
+//MARK:- View update extension
+extension ThirdViewController: WeatherManagerDelegate {
+    
+    func updateWeather(weatherModel: WeatherModel){
+        DispatchQueue.main.sync {
+            temperatureLabel.text = weatherModel.temperatureString
+            cityName.text = weatherModel.cityName
+            self.weatherImageView.image = UIImage(systemName: weatherModel.conditionName)
+            //print("action: search, city: \(searchField.text!)")
+            /*if searchField.text == "Tokyo" {
+                self.backgroundImageView.image = UIImage(named: "backgroundTokyo")
+            } else {
+                self.backgroundImageView.image = UIImage(named: "background")
+            }*/
+        }
+    }
+    
+    func failedWithError(error: Error){
+        print(error)
+    }
+}
+
