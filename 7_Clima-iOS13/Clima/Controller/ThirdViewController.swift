@@ -22,7 +22,7 @@ class ThirdViewController: UIViewController {
         super.viewDidLoad()
         
         // 画像設定
-        backgroundImageView.image = UIImage(named: "background")
+        backgroundImageView.image = R.image.background()
         
         weatherManager.delegate = self
         // ナビゲーションバー透明

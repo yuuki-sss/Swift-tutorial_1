@@ -1,0 +1,12 @@
+//
+//  Localizable.strings
+//  Clima
+//
+//  Created by 徳永勇希 on 2024/06/17.
+//  Copyright © 2024 App Brewery. All rights reserved.
+//
+
+"ArticleTitle" = "記事タイトル";
+"ArticleAuthor" = "kasiwa";
+"ArticleBody" = "記事本文記事本文記事本文記事本文記事本文記事本文記事本文";
+"ArticleCreatedAt" = "2023/05/06";
