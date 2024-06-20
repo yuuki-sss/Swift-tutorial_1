@@ -101,10 +101,11 @@ extension WeatherViewController: WeatherManagerDelegate {
             cityLabel.text = weatherModel.cityName
             self.conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
             print("action: search, city: \(searchField.text!)")
-            if searchField.text == "Tokyo" {
-                self.backgroundImageView.image = UIImage(named: "backgroundTokyo")
+            
+            if searchField.text == R.string.localizable.tokyo() {
+                self.backgroundImageView.image = R.image.backgroundTokyo()
             } else {
-                self.backgroundImageView.image = UIImage(named: "background")
+                self.backgroundImageView.image = R.image.background()
             }
         }
     }
